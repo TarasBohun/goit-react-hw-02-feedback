@@ -4,6 +4,9 @@ import { FeedbackOptions } from './FeedbackOptions';
 import { Section } from './Section';
 import { Statistics } from './Statistics';
 
+import { GlobalStyle } from './GlobalStyle';
+import { Container } from './Container';
+
 export class App extends Component {
   state = {
     good: 0,
@@ -31,7 +34,9 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
 
     return (
-      <div>
+      <Container>
+        <GlobalStyle />
+
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={options}
@@ -47,7 +52,7 @@ export class App extends Component {
             positivePercentage={this.countPositiveFeedbackPercentage()}
           />
         </Section>
-      </div>
+      </Container>
     );
   }
 }
